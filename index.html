@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Arturo Pérez Roncero</title>
+<link rel="icon" href="demo_icon.jpg" type="image/jpg" sizes="16x16"> 
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: 'Roboto Slab', serif;
+  margin: 0;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  height:50px;
+  width:170px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  color: white;
+  color: #818181;
+  margin: 4px 2px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.button0 {
+  background-color: black; 
+  color: white; 
+  border: 3px solid #000000;
+}
+
+.button0:hover {
+  background-color: #000000;
+  color: white;
+}
+
+
+.button1 {
+  background-color: black; 
+  color: white; 
+  border: 3px solid #103b7d;
+}
+
+.button1:hover {
+  background-color: #103b7d;
+  color: white;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+
+.button2 {
+  background-color: black; 
+  color: white; 
+  border: 3px solid #a34460;
+}
+
+.button2:hover {
+  background-color: #a34460;
+  color: white;
+}
+
+
+
+.button3 {
+  background-color: black; 
+  color: white; 
+  border: 3px solid #454199;
+}
+
+.button3:hover {
+  background-color: #454199;
+  color: white;
+}
+
+
+
+.button4 {
+  background-color: black; 
+  color: white; 
+  border: 3px solid #b45c5c;
+}
+
+.button4:hover {
+  background-color: #b45c5c;
+  color: white;
+}
+
+
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+
+/* Header/logo Title */
+.header {
+  padding: 15%;
+  text-align: center;
+  /*background: #FF5B5E;*/
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 100px;
+}
+
+.header p {
+  font-size: 30px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column
+.side {
+  -ms-flex: 20%;
+  flex: 20%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+    <h2>No, for real, who am I?</h2>
+    <p>I enjoy human activities such as breathing, eating, and pursuing my meaningless dreams.</p>
+    <h3>Other interests</h3>
+    <div class="fakeimg" style="height:60px;">Scientific Software</div><br>
+    <div class="fakeimg" style="height:60px;">Videogame development</div><br>
+    <div class="fakeimg" style="height:60px;">Science Fiction</div>
+    <div class="fakeimg" style="height:60px;">Music</div>
+    <div class="fakeimg" style="height:60px;">Badminton</div>
+    <div class="fakeimg" style="height:60px;">Making crappy websites</div>
+
+/* Main column */
+.main {   
+  -ms-flex: 100%; /* IE10 */
+  flex: 100%;
+  background-color: white;
+  padding: 60px;
+  color: black;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+
+span { font-size: 60px; }
+span b { font-size: 200px;}
+span g { font-size: 250px;}
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<div style="background-image: url('IRA2.png');">
+
+<div class="header">
+  <h1><span><b>Creatividad</b></span></h1>
+</div>
+
+
+<div class="navbar">
+  <div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#anchor1"></a>
+  <a href="#anchor1" style="text-align:left;">Scientific Software</a>
+  <a href="#anchor2" style="text-align:left;">Videogame Development</a>
+  <a href="#anchor3" style="text-align:left;">Science Fiction</a>
+  <a href="#anchor4" style="text-align:left;">Music</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Índice</button>  
+
+  <button class="button button0" onclick="window.location.href = 'https://arturoperezroncero.github.io/cas.github.io/';">Inicio</button>
+  <button class="button button1 disabled" onclick="window.location.href = 'https://arturoperezroncero.github.io/cas-creatividad.github.io/';">Creatividad</button>
+  <button class="button button2" onclick="window.location.href = 'https://arturoperezroncero.github.io/cas-actividad.github.io/';">Actividad</button>
+  <button class="button button3" onclick="window.location.href = 'https://arturoperezroncero.github.io/cas-servicio.github.io/';">Servicio</button>
+  <button class="button button4" onclick="window.location.href = 'https://arturoperezroncero.github.io/cas-proyecto.github.io/';">Proyecto</button>
+
+
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "200px";
+  document.getElementById("main").style.marginLeft = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+</div>
+
+<div class="row">
+  <div class="side">
+  </div>
+  <div class="main" style="background-color:#e8f0fc;">
+    <h2 id="anchor1"></h2>
+    <h2><big><big><big><big>Desarrollo de Software Científico</big></big></big></big></h2>
+    Entre los muchos proyectos de software científico que he realizado durante los 2 últimos años, he recopilado los más destacables:
+    <h2>Simuladores de potencial efectivo</h2>
+    <div style="text-align:center;">
+    <img src="lagrangianos.png" alt="Lagrangian Points" width="100%">
+    </div>
+    <br>
+    Leyendo sobre los puntos de Lagrange, me topé con una imagen muy similar a esta en la que se me mostraba el potencial efectivo de un sistema con el fin de poder calcular los puntos de Lagrange de un sistema dado. Cautivado por la simpleza con la que se mostraba algo tan aparentemente complejo como pueden ser los puntos de Lagrange, decidí darle una oportunidad yo mismo e intentar programarlo por mi cuenta. Simulando un sistema con 3 cuerpos, y las interacciones gravitatorias entre ellos, fui capaz de desarrollar este simulador del potencial efectivo (energía cinética sumado a la fuerza centrífuga de un objeto, en un sistema no-inercial). Este proyecto me fue muy útil más adelante, y fue un factor crítico a la hora de trabajar en mi monografía, pues marcó las bases sobre las que construí el resto de software necesario para completarla con éxito, todo basado en este primer proyecto.
+    <h2>The Millenium Run</h2>
+    A su vez, para poder realizar el proyecto anterior hice uso de otro anterior. Se trata de un simulador de n-cuerpos, capaz de simular el comportamiento de una cantidad indefinida de objetos que interactúan únicamente entre sí mediante la atracción gravitatoria. Me basé en la mítica "Millenium Run", ua simulación científica de hace unos años que pretendió hacer lo mismo:
+    <br><br>
+
+    <div style="text-align:center;">
+    <video width="60%" controls>
+    <source src="MR.mp4" type="video/mp4">
+    </video>
+    </div>
+    <br>
+    Estos son los resultados que obtuve utilizando 2 métodos diferentes:
+    <br><br>
+    <video width="49.8%" controls>
+    <source src="2.mp4" type="video/mp4">
+    </video>
+    <video width="49.8%" controls>
+    <source src="3.mp4" type="video/mp4">
+    </video>
+
+
+
+
+    <h2>Simuladores electromagnéticos</h2>
+    Otro de los proyectos que he realizado este año es un simulador de campos electromagnéticos. A continuación se ve la interacción entre dos monopolos eléctricos de signos iguales, y otro con monopolos de signos opuestos.
+    <br><br>
+    <video width="49.8%" controls>
+    <source src="a.mp4" type="video/mp4">
+    </video>
+    <video width="49.8%" controls>
+    <source src="b.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    También desarrollé un programa que trazaba las líneas de campo:
+    <br><br>
+
+
+
+    <div style="text-align:center;">
+    <img src="lines.png" alt="Field lines" width="60%">
+    </div>
+    <br>
+    A continuación se ven las interacción entre 2 dipolos magnéticos:
+    <br><br>
+    <video width="49.8%" controls>
+    <source src="c.mp4" type="video/mp4">
+    </video>
+    <video width="49.8%" controls>
+    <source src="d.mp4" type="video/mp4">
+    </video>
+
+
+    <br><br>
+    Y por último, una simulación del comportamiento de partículas cargadas entrando en un campo electromagnético. La representación gráfica está pensada para evocar a las partículas cargadas provenientes del viento solar entrando en el campo magnético de la Tierra.
+    <br><br>
+    <div style="text-align:center;">
+    <video width="60%" controls>
+    <source src="e.mp4" type="video/mp4">
+    </video>
+    </div>
+
+
+
+
+    <h2>Atractores y el Conjunto de Mandelbrot</h2>
+    Otro campo de interés que estudié por mi cuenta utilizando el desarrollo de software es el de la Teoría del Caos. Estos ejemplos a continuación los usé más adelante como estímulo para mi trabajo de investigación individual de matemáticas. Simulando sistemas de ecuaciones fui capaz de obtener atractores como los siguientes:
+    <br><br>
+
+    <div style="text-align:center;">
+    <img src="clif.png" alt="Clifford Attractor" width="100%">
+    </div>
+
+    
+
+
+
+    <div style="text-align:center;">
+    <img src="lor.png" alt="Clifford Attractor" width="100%">
+    </div>
+
+    
+    Y mediante la iteración de una ecaución dada, y estudiando posteriormente su convergencia dependiendo de los valores de un número complejo determinado, puede obtener la siguiente simulación:
+    <div style="text-align:center;">
+    <video width="60%" controls>
+    <source src="Mandelbrot.mp4" type="video/mp4">
+    </video>
+    </div>
+
+
+
+    <h2><big>Desarrollo de Videojuegos</big></h2>
+    A lo largo de los últimos años, he desarrollado una variedad de videojuegos, y otros programas, que he ido publicando en la Play Store. Uno de ellos es especialmente destacable, y lo incluiré en mi CAS como mi proyecto. El resto están incluidos a continuación.
+
+    <a href="https://play.google.com/store/apps/details?id=stellar.evolution&hl=es_419">here</a>. In case you don't want to, here are some snapshots and the trailer:</p>
+
+    <img src="captura1.png" alt="captura1" width="32%">
+    <img src="captura2.png" alt="captura2" width="32%">
+    <img src="captura3.png" alt="captura3" width="32%">
+    <img src="captura4.png" alt="captura4" width="32%">
+    <img src="captura5.png" alt="captura5" width="32%">
+    <img src="captura6.png" alt="captura6" width="32%">
+
+    <div style="text-align:center;">
+    <video width="100%" controls>
+    <source src="trailer.mp4" type="video/mp4">
+    </video>
+    </div>
+
+
+
+
+
+
+    <h2><big>Arte Computacional</big></h2>
+    <h2><big>Taller de Astronomía</big></h2>
+    <h2><big>Taller de Telecomunicaciones</big></h2>
+    <h2><big>Batería</big></h2>
+    <h2><big>Taller de Programación</big></h2>
+    <h2><big>HP Codewars</big></h2>
+    <h2><big>Maezmun</big></h2>
+    <h2><big>PEAC</big></h2>
+    <h2><big>"Desarrollo" de Música</big></h2>
+
+
+
+
+
+
+
+
+
+    <h2 id="anchor2"></h1>
+    <h1><big><big><big>Videogame Development</big></big></big></h1>
+    <h2><big>The Clone Wars</big></h2>
+    <div style="text-align:center;">
+    <img src="banner.png" alt="tcw" width="100%">
+    </div>
+    <p>A year ago I had the idea of developing a video game. I started working from scratch. After a couple of weeks I had all the main ideas clear: The game would be Star Wars themed, and its main goal would be to interact withfour different factions with opposing interests. Different characters would ask you questions or make demands,and depending on the answer you gave them, their satisfaction level would increase or decrease. If it reached its maximum or minimum, you lost the game. It released for Android on New Year's Eve, and in less than two months it got more than two thousand downloads.</p>
+    <p>It is currently anavailable on Play Store, but a copy of the APK can be found here:</p>
+    <a href="TheCloneWars.apk" download="TheCloneWars_Arturo">
+    <img src="TheCloneWars.apk" alt="The Clone Wars" width="104" height="142">
+    </a>
+    <p>In case you don't want to do that, here are some snapshots and the trailer, again:</p>
+    <div style="text-align:center;">
+    <video width="100%" controls>
+    <source src="tcw.mp4" type="video/mp4">
+    </video>
+    </div>
+    <img src="app1.png" alt="1" width="49%">
+    <img src="app2.png" alt="2" width="49%">
+    <img src="app3.png" alt="3" width="32%">
+    <img src="app5.png" alt="4" width="32%">
+    <img src="app6.png" alt="5" width="32%">
+    <img src="app7.png" alt="6" width="32%">
+    <img src="app8.png" alt="7" width="32%">
+    <img src="app10.png" alt="8" width="32%">
+
+    <h2><big>Evolution</big></h2>
+    <p>I had this idea of doing a game where you started playing as some species, and slowlly evolved into others, ending up in existing animals nowadays. That is basically what I ended up doing. In "Evolution" you can play as dinasaurs, seagulls, and worst of all: humans.</p>
+    <div style="text-align:center;">
+    <video width="100%" controls>
+    <source src="Evolution.mp4" type="video/mp4">
+    </video>
+    </div>
+    <p>It is currently available on <a href="https://play.google.com/store/apps/details?id=evolution.arturo">Play Store.</a></p>
+
+    <h2><big>Kill Sebas</big></h2>
+    <p>The name speaks for itself.</p>
+    <div style="text-align:center;">
+    <video width="100%" controls>
+    <source src="KillSebas.mp4" type="video/mp4">
+    </video>
+    </div>
+    <p>It is currently available on <a href="https://play.google.com/store/apps/details?id=kill.sebas">Play Store.</a></p>
+
+    <h2 id="anchor3"></h1>
+    <h1><big><big><big>Science Fiction</big></big></big></h1>
+    <h2><big>Visual Arts</big></h2>
+    <div style="text-align:center;">
+    <img src="def.png" alt="tcw" width="100%">
+    </div>
+    <h3>Ramake of Michael Stearns work, using Blender.</h3>
+    <div style="text-align:center;">
+    <video width="100%" controls>
+    <source src="rebels.mp4" type="video/mp4">
+    </video>
+    </div>
+    <h3>Made with Blender.</h3>
+
+    <h2 id="anchor4"></h1>
+    <h1><big><big><big>Music</big></big></big></h1>
+    <h2><big>Drums</big></h2>
+    <h3>Excerpt of me playing "Banquet" by Bloc Party.</h3>
+    <div style="text-align:center;">
+    <video width="100%" controls>
+    <source src="drumsDef2.mp4" type="video/mp4">
+    </video>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <h2>Thanks for reading</h2>
+</div>
+</body>
